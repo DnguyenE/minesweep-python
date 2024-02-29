@@ -11,19 +11,28 @@ root.title("Minesweeper")  # Title of window
 root.resizable(False, False)  # Making window not resizable
 
 top_frame = Frame(root,
-                  bg='grey',
+                  bg='black',
                   width=configure.WINDOW_WIDTH,  # Constant Function
-                  height=function.getHeight(0.15),  # Call of Height function here (15%) of height
+                  height=function.getHeight(0.25),  # Call of Height function here (15%) of height
                   )
 
 top_frame.place(x=0, y=0)  # No need to change anything here
 
 left_frame = Frame(root,
-                   bg='blue',
-                   width=function.getWidth(0.15),  # Call on function here to determine the proper width
-                   height=function.getHeight(0.85)  # Call on height function here (85%) of height
+                   bg='black',
+                   width=function.getWidth(0.25),  # Call on function here to determine the proper width
+                   height=function.getHeight(0.75)  # Call on height function here (85%) of height
                    )
 
-left_frame.place(x=0, y=function.getHeight(0.15))  # Implement the function to determine the proper coordinate
+left_frame.place(x=0, y=function.getHeight(0.25))  # Implement the function to determine the proper coordinate
+
+center_frame = Frame(root,
+                     bg='black',
+                     width=function.getWidth(0.75),
+                     height=function.getHeight(0.75)
+                    )
+
+center_frame.place(x=function.getWidth(0.25), y=function.getHeight(0.25))
+
 
 root.mainloop()  # Creating the window
