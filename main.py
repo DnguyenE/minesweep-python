@@ -1,6 +1,8 @@
 from tkinter import *  # importing the package
+from cell import *
 import configure
 import function
+
 
 root = Tk()
 
@@ -30,9 +32,18 @@ center_frame = Frame(root,
                      bg='black',
                      width=function.getWidth(0.75),
                      height=function.getHeight(0.75)
-                    )
+                     )
 
 center_frame.place(x=function.getWidth(0.25), y=function.getHeight(0.25))
 
+for x in range(configure.GRID_SIZE):
+    for y in range(configure.GRID_SIZE):
+        c = Cell(x, y)
+        c.create_btn_object(center_frame)
+        c.cell_btn_object.grid(
+            column=y, row=x
+        )
+
+Cell.randomize_mines()
 
 root.mainloop()  # Creating the window
